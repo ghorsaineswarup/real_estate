@@ -1,5 +1,4 @@
 import Groq from 'groq-sdk';
-import Groq from 'groq-sdk';
 import { createClient } from '@supabase/supabase-js';
 import ws from 'ws';
 import dotenv from 'dotenv';
