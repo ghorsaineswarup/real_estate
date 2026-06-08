@@ -8,11 +8,6 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
   realtime: { transport: ws }
 });
-import dotenv from 'dotenv';
-dotenv.config();
-
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 async function parseIntent(message, history) {
   const response = await groq.chat.completions.create({
@@ -21,7 +16,7 @@ async function parseIntent(message, history) {
     messages: [
       {
         role: 'system',
-        content: `You are a real estate search assistant. Extract search filters from the user message.
+        content: `You are a real estate search assistant. Extract filters from the user message.
 Return ONLY valid JSON, no extra text:
 {
   "minPrice": number or null,
