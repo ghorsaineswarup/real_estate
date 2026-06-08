@@ -5,7 +5,7 @@ import { searchProperties } from './search.js';
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));

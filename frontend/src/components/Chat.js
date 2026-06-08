@@ -18,7 +18,7 @@ export default function Chat({ onResults, onLoading }) {
     setLoading(true);
     onLoading(true);
     try {
-      const res = await fetch('/api/search', {
+       const res = await fetch('https://realestate-production-f273.up.railway.app/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg, history: messages })
