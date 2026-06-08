@@ -1,5 +1,14 @@
 import Groq from 'groq-sdk';
+import Groq from 'groq-sdk';
 import { createClient } from '@supabase/supabase-js';
+import ws from 'ws';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
+  realtime: { transport: ws }
+});
 import dotenv from 'dotenv';
 dotenv.config();
 
